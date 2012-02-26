@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  
+  <div class="main bottom_ensure clearfix"> <a href="article-20.html" target="_blank" rel="nofollow" class="bottom_ensure_1"></a> <a href="article-40.html" target="_blank" rel="nofollow" class="bottom_ensure_2"></a> <a href="article-21.html" target="_blank" rel="nofollow" class="bottom_ensure_3"></a> <a href="article-16.html" target="_blank" rel="nofollow" class="bottom_ensure_4"></a> </div>
+<div class="main footer">
+  {$copyright}&nbsp;&nbsp;&nbsp;
+  <!-- ICP 证书{if $icp_number} -->
+  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a><br />
+  <!-- 结束ICP 证书{/if} --><a href="{$feed_url}"><img src="../images/xml_rss2.gif" alt="rss" /></a> <br>
+    {if $stats_code}{$stats_code}{/if}
+  <div class="bottom_nav">
+<a href="http://sae.sina.com.cn" target="_blank">
+    <img src="http://static.sae.sina.com.cn/image/poweredby/120X33_transparent.gif" title="Powered by Sina App Engine"></a>  
+    <a href="http://wiki.cgame.cn/software_wiki" target="_blank">
+        <img src="/themes/sae_themes/images/cgamesoftware.png" title="echsops for SAE 提供技术支撑 QQ:21434579"></a> 
+        </div>
+</div>

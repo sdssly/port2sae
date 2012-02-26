@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="screeBox" style="width:190px; _width:190px;"> <font class="font_b">分类 :</font>
+      <div class="category_tree"> 
+      <!--{foreach from=$categories item=cat}-->
+      <a href="{$cat.url}"><b>{$cat.name|escape:html}</b></a><br>
+       <!--{foreach from=$cat.cat_id item=child}-->
+        &nbsp;&nbsp;<a href="{$child.url}">{$child.name|escape:html}</a><br>
+        <!--{foreach from=$child.cat_id item=childer}-->
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="{$childer.url}">{$childer.name|escape:html}</a><br>
+       <!--{/foreach}-->
+     <!--{/foreach}-->
+         <!--{/foreach}--> 
+      </div>
+    </div>

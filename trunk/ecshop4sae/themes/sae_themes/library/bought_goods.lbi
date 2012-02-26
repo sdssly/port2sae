@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $bought_goods} -->
+ <div id="rand_goods">
+            <p class="p_h3">{$lang.shopping_and_other}</p>
+            <ul class="clearfix">
+            <!--{foreach from=$bought_goods item=bought_goods_data}-->
+              <li class="goodsimg"><a target="_blank" href="{$bought_goods_data.url}"><img class="B_blue" alt="{$bought_goods_data.goods_name}" src="{$bought_goods_data.goods_thumb}"></a> <br>
+                本 店 价：
+                {$bought_goods_data.shop_price}
+                <p></p>
+              </li>
+              <!--{/foreach}-->             
+            </ul>
+          </div>    
+<!--{/if}-->

@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="box_2">
+<b class="theh3 wrap">{$goods_cat.name|escape:html}</b>
+<div class="clearfix">
+<!--{foreach from=$cat_goods item=goods}-->
+    <div class="goodsItem">
+  		
+       <a href="{$goods.url}" target="_blank" class="goods_a"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="goodsimg" /></a>
+      <p>       <!-- {if $goods.promote_price neq ""} --><font class="price_b">{$goods.promote_price}</font>  <!-- {else}--> <font class="price_b">{$goods.shop_price}</font><!--{/if}-->   <font class="price_s">{$goods.market_price}</font>
+            </p>
+      <p><a href="{$goods_cat.url}" target="_blank">{$goods.name|escape:html}</a></p>      
+    </div>
+    <!--{/foreach}-->
+  </div>
+</div>

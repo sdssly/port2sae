@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="themes/sae_themes/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/common.js"></script></head>
+<body>
+ <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="top10px">
+ <div id="ur_here"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<div class="wrap">
+
+    <div class="left_column"> 
+<!-- TemplateBeginEditable name="左区域" -->
+<!-- #BeginLibraryItem "/library/goods_related.lbi" -->
+
+<!-- {if $related_goods} -->
+<div class="box_1">
+      <div class="theh3">随机商品</div>
+      <ul class="clearfix">
+      <!--{foreach from=$related_goods item=releated_goods_data}-->
+                <li class="goodsimg"><a target="_blank" href="{$releated_goods_data.url}"><img src="{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name}" class="B_blue" /></a>
+        <br>
+本 店 价：
+ <!-- {if $releated_goods_data.promote_price neq 0} -->
+{$releated_goods_data.formated_promote_price}
+        <!-- {else} -->
+{$releated_goods_data.shop_price}
+        <!-- {/if} -->             <p></p>
+		</li>
+        
+         <!--{/foreach}-->
+    </ul>    
+    </div>
+<!-- {/if} -->
+
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_articles.lbi" -->
+
+<div class="box_1">
+    <div class="theh3">文章分类</div>
+    <ul>
+            <li>
+            <a href="{$articles_cat.url}">{$articles_cat.name|escape:html}</a></li>
+            </ul>
+</div>
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> 
+
+	</div>
+    
+    
+    <div class="content">
+    	<div class="box_1" style="border:1px solid #DDD">
+        	<h1>{$article.title|escape:html}</h1>
+			<div class="article_content">
+            
+                     <!-- {if $article.content } -->
+          {$article.content}
+         <!-- {/if} -->
+         {if $article.open_type eq 2 or $article.open_type eq 1}<br />
+         <a href="{$article.file_url}" target="_blank">{$lang.relative_file}</a>
+          {/if}
+          			<div class="subtitle">本文由<strong>{$shop_name}</strong> 发布于{$article.add_time}</div>
+
+			</div>
+            <div style="padding:8px; margin-top:15px; text-align:left; border-top:1px solid #ccc;">
+         <!-- 上一篇文章 -->
+          {if $next_article}
+            {$lang.next_article}:<a href="{$next_article.url}" class="f6">{$next_article.title}</a><br />
+          {/if}
+          <!-- 下一篇文章 -->
+          {if $prev_article}
+            {$lang.prev_article}:<a href="{$prev_article.url}" class="f6">{$prev_article.title}</a>
+          {/if}
+                        </div>
+        </div>
+         <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+        
+	 </div>
+         <div class="clear"></div>
+</div>
+<div class="blank5"></div>
+</div>
+ <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+ <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script language="javascript" type="text/javascript">
+var w3c = (document.getElementById) ? true : false;
+var agt = navigator.userAgent.toLowerCase();
+var ie = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1) && (agt.indexOf("omniweb") == -1));
+var mymovey = new Number();
+function IeTrueBody(){
+	return (document.compatMode && document.compatMode!="BackCompat") ? document.documentElement : document.body;
+}
+function GetScrollTop(){
+	return ie ? IeTrueBody().scrollTop : window.pageYOffset;
+}
+function heartBeat(){
+	diffY=GetScrollTop(); 
+	mymovey += Math.floor((diffY-document.getElementById('backi').style.top.replace("px","")+200)*0.1);
+	document.getElementById('backi').style.top = mymovey+"px";
+} 
+window.setInterval("heartBeat()",1);
+</script>
+</body>
+</html>

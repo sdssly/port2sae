@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="Generator" content="ECSHOP v2.7.2" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="Asics GEL-STRATUS 2.1" />
+<meta name="Description" content="Asics GEL-STRATUS 2.1是一款爱世克斯抗震跑鞋，本店全新到货，100%官方正品，支持货到付款，欢迎您的选购！" />
+<title>Asics GEL-STRATUS 2.1跑鞋系列_Asics官网</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link href="themes/sae_themes/style.css" rel="stylesheet" type="text/css" />
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="top10px">
+<div class="wrap" id="ur_here">
+  <div id="ur_here"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+<div class="wrap">
+  <div></div>
+  <div class="topic_nav"> <span>分类目录</span> <a href="#t1">{$topic.title}</a> </div>
+  <div class="box_2"> <b class="theh3 wrap"  id="t1">{$topic.title}</b>
+    <div id="topic_goods">
+      <!-- {foreach from=$sort_goods_arr item=sort key=sort_name} -->
+      <!-- {foreach from=$sort item=goods} -->
+      <div class="goodsItem"> <a href="{$goods.url}"><img src="{$goods.goods_thumb}" alt="{$goods.goods_name}" class="goodsimg" /></a><br />
+        <p> <font class="price_b">       
+        <!-- {if $goods.promote_price neq ""} -->
+        {$goods.promote_price}
+        <!-- {else}-->
+        {$goods.shop_price}
+        <!--{/if}-->
+        </font> <font class="price_s">{$goods.market_price}</font> </p>
+        <p><a href="{$goods.url}" title="{$goods.goos_name}">{$goods.goods_name}</a></p>
+      </div>
+      <!--{/foreach}-->
+      <!--{/foreach}-->
+    </div>
+  </div>
+  <div style="clear:both"></div>
+  <div class="c_title clearfix" title="点击打开" onclick="javascript:cat_c('c_about')">+ 专题介绍</div>
+  <div id="c_about" class="c_detail clearfix">
+    {$topic.intro}
+  </div>
+</div>
+
+<div class="bottom_ensure clearfix"> <a href="/article-13.html" target="_blank" rel="nofollow" class="bottom_ensure_1"></a> <a href="/article-8.html" target="_blank" rel="nofollow" class="bottom_ensure_2"></a> <a href="/article-14.html" target="_blank" rel="nofollow" class="bottom_ensure_3"></a> <a href="/article-9.html" target="_blank" rel="nofollow" class="bottom_ensure_4"></a> </div>
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script language="javascript" type="text/javascript">
+var w3c = (document.getElementById) ? true : false;
+var agt = navigator.userAgent.toLowerCase();
+var ie = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1) && (agt.indexOf("omniweb") == -1));
+var mymovey = new Number();
+function IeTrueBody(){
+	return (document.compatMode && document.compatMode!="BackCompat") ? document.documentElement : document.body;
+}
+function GetScrollTop(){
+	return ie ? IeTrueBody().scrollTop : window.pageYOffset;
+}
+function heartBeat(){
+	diffY=GetScrollTop(); 
+	mymovey += Math.floor((diffY-document.getElementById('backi').style.top.replace("px","")+200)*0.1);
+	document.getElementById('backi').style.top = mymovey+"px";
+} 
+window.setInterval("heartBeat()",1);
+</script>
+
+</body>
+<script type="text/javascript"> 
+cat_c('c_about');
+function $d(element) {
+  return document.getElementById(element);
+}
+function cat_c(str){
+	var ci=$d(str);
+	if(ci.className != 'none'){
+	ci.className='none';
+	}else{
+	ci.className='c_detail clearfix';
+	}
+}
+</script>
+
+</html>

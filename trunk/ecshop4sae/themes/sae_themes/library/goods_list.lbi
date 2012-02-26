@@ -1,0 +1,177 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="goods_list">
+<div class="sortandpage">
+<p>
+  
+<form name="listform" class="sort" method="GET">
+  <select style="border:1px solid #ccc;" name="sort">
+    <option value="goods_id">按上架时间排序</option><option value="shop_price">按价格排序</option><option value="last_update">按更新时间排序</option>  </select>
+  <select style="border:1px solid #ccc;" name="order">
+    <option selected="" value="DESC">倒序</option><option value="ASC">正序</option>  </select>
+  <input type="submit" value="查看">
+  <input type="hidden" name="category" value="{$category}" />
+  <input type="hidden" name="display" value="{$pager.display}" id="display" />
+  <input type="hidden" name="brand" value="{$brand_id}" />
+  <input type="hidden" name="price_min" value="{$price_min}" />
+  <input type="hidden" name="price_max" value="{$price_max}" />
+  <input type="hidden" name="filter_attr" value="{$filter_attr}" />
+  <input type="hidden" name="page" value="{$pager.page}" />
+  <input type="hidden" name="sort" value="{$pager.sort}" />
+  <input type="hidden" name="order" value="{$pager.order}" />  
+</form>
+<!--jimphei's pager-->
+<!--翻页 start-->
+<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get" class="page">
+<!-- {if $pager.styleid eq 0 } -->
+<div id="pager">
+  {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <select name="page" id="page" onchange="selectPage(this)">
+    {html_options options=$pager.array selected=$pager.page}
+    </select>
+</div>
+<!--{else}-->
+
+<!--翻页 start-->
+ <div id="pager">
+  <!-- {if $pager.page_first} --><a href="{$pager.page_first}">{$lang.page_first} ...</a><!-- {/if} -->
+  <!-- {if $pager.page_prev} --><a href="{$pager.page_prev}">{$lang.page_prev}</a><!-- {/if} -->
+  <!-- {if $pager.page_count neq 1} -->
+    <!--{foreach from=$pager.page_number key=key item=item}-->
+      <!-- {if $pager.page eq $key} -->
+      <span>{$key}</span>
+      <!-- {else} -->
+      <a href="{$item}">{$key}</a>
+      <!-- {/if} -->
+    <!--{/foreach}-->
+  <!-- {/if} -->
+
+  <!-- {if $pager.page_next} --><a href="{$pager.page_next}">{$lang.page_next}</a><!-- {/if} -->
+  <!-- {if $pager.page_last} --><a href="{$pager.page_last}">...{$lang.page_last}</a><!-- {/if} -->
+  
+  <!-- {if $pager.page_kbd} -->
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    第<input type="text" name="page" onkeydown="if(event.keyCode==13)this.form.submit()" size="3" class="selectpage" />页
+    <!-- {/if} -->
+</div>
+<!--翻页 END-->
+
+<!-- {/if} -->
+</form>
+
+<!--jimphei's pager end-->
+
+</div>
+
+<div class="centerPadd">
+ <!--{foreach from=$goods_list item=goods}-->
+ <div class="goodsItem">
+       <a target="_blank" href="{$goods.url}"><img class="goodsimg" alt="{$goods.goods_name|escape:html}" src="{$goods.goods_thumb}"></a><br>  
+     <!--{if $goods.promote_price neq "" } -->
+                <font class="price_b">{$goods.promote_price}</font>
+                 <!--{else}-->
+                 <font class="price_b">{$goods.shop_price}</font>
+                 <!--{/if}-->
+                            <!-- {if $show_marketprice} -->
+   <font class="price_s">{$goods.market_price}</font>
+    <!-- {/if} -->
+               <p><a title="{$goods.name|escape:html}" target="_blank" href="{$goods.url}">{$goods.goods_name|escape:html}</a></p>
+    </div>
+    <!--{/foreach}-->
+<!--jimphei's pager-->
+<!--翻页 start-->
+<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get" class="page">
+<!-- {if $pager.styleid eq 0 } -->
+<div id="pager" class="pager_bottom">
+  {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <select name="page" id="page" onchange="selectPage(this)">
+    {html_options options=$pager.array selected=$pager.page}
+    </select>
+</div>
+<!--{else}-->
+
+<!--翻页 start-->
+<div id="pager" class="pager_bottom">
+  <!-- {if $pager.page_first} --><a href="{$pager.page_first}">{$lang.page_first} ...</a><!-- {/if} -->
+  <!-- {if $pager.page_prev} --><a href="{$pager.page_prev}">{$lang.page_prev}</a><!-- {/if} -->
+  <!-- {if $pager.page_count neq 1} -->
+    <!--{foreach from=$pager.page_number key=key item=item}-->
+      <!-- {if $pager.page eq $key} -->
+      <span>{$key}</span>
+      <!-- {else} -->
+      <a href="{$item}">{$key}</a>
+      <!-- {/if} -->
+    <!--{/foreach}-->
+  <!-- {/if} -->
+
+  <!-- {if $pager.page_next} --><a href="{$pager.page_next}">{$lang.page_next}</a><!-- {/if} -->
+  <!-- {if $pager.page_last} --><a href="{$pager.page_last}">...{$lang.page_last}</a><!-- {/if} -->
+  
+  <!-- {if $pager.page_kbd} -->
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    第<input type="text" name="page" onkeydown="if(event.keyCode==13)this.form.submit()" size="3" class="selectpage" />页
+    <!-- {/if} -->
+</div>
+<!--翻页 END-->
+
+<!-- {/if} -->
+</form>
+
+<!--jimphei's pager end-->
+
+</div>
+</div>
+
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+<script type="text/javascript">
+window.onload = function()
+{
+  Compare.init();
+  fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>

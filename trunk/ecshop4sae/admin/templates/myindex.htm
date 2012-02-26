@@ -1,0 +1,43 @@
+<style type="text/css">
+<!--
+.button-div {
+  text-align: center;
+  padding: 3px 0;
+}
+input.button {
+  padding: 2px 8px 0px;
+  margin: 2px 2px;
+  border: 1px solid #2D5082;
+  background: url(../images/button_bg.gif) repeat-x;
+}
+-->
+</style>
+
+
+<p>顶端自定义区域设置</p>
+<form id="myindex" action="myindex.php" method="post">
+	<div >
+    <table width="90%" id="myindex" >
+      <tr>
+        <td>{$FCKeditor2}</td>
+      </tr>
+    </table>
+    </div>
+    <div class="button-div">      
+      <input type="submit" value="{$lang.button_submit}" name="submit2" class="button" />      
+    </div>
+</form>
+
+<p>banner自定义区域设置</p>
+<form id="myindex" action="myindex.php" method="post">
+	<div >
+    <table width="90%" id="myindex" >
+      <tr>
+        <td>{$FCKeditor}</td>
+      </tr>
+    </table>
+    </div>
+    <div class="button-div">      
+      <input type="submit" value="{$lang.button_submit}" name="submit" class="button" />      
+    </div>
+</form>

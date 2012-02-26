@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="Generator" content="ECSHOP v2.7.2" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<title>Asics资讯_Asics官网</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link href="themes/default/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/common.js"></script></head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="wrap">
+    <div class="left_column"> 
+    
+ <!-- #BeginLibraryItem "/library/article_category_tree.lbi" --><!-- #EndLibraryItem -->
+ <!-- #BeginLibraryItem "/library/history2.lbi" --><!-- #EndLibraryItem -->
+ 
+  <!-- TemplateBeginEditable name="左边区域" --><!-- TemplateEndEditable -->
+</div>
+	<div class="content">
+ <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+       <div class="box_1" id="article_list">
+       		<h3>文章列表</h3>
+
+            <ul>
+                  <!-- {foreach from=$artciles_list item=article} -->
+<li><a href="{$article.url}" title="{$article.title|escape:html}" class="f6">{$article.short_title}</a></li>
+      <!-- {/foreach} -->
+                          </ul>
+            
+ <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+		</div>
+    </div>
+</div>
+ <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+ <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script language="javascript" type="text/javascript">
+var w3c = (document.getElementById) ? true : false;
+var agt = navigator.userAgent.toLowerCase();
+var ie = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1) && (agt.indexOf("omniweb") == -1));
+var mymovey = new Number();
+function IeTrueBody(){
+	return (document.compatMode && document.compatMode!="BackCompat") ? document.documentElement : document.body;
+}
+function GetScrollTop(){
+	return ie ? IeTrueBody().scrollTop : window.pageYOffset;
+}
+function heartBeat(){
+	diffY=GetScrollTop(); 
+	mymovey += Math.floor((diffY-document.getElementById('backi').style.top.replace("px","")+200)*0.1);
+	document.getElementById('backi').style.top = mymovey+"px";
+} 
+window.setInterval("heartBeat()",1);
+</script>
+</body>
+</html>
+
+
