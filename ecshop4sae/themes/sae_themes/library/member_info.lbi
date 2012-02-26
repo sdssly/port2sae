@@ -1,0 +1,10 @@
+<div id="append_parent"></div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $user_info}
+{$lang.hello}，<font class="f4_b">{$user_info.username}</font>,  <a href="user.php?act=logout">{$lang.user_logout}</a>
+<a href="user.php">我的账户</a><a href="user.php?act=order_list">我的订单</a>
+{else}
+ {$lang.welcome}&nbsp;&nbsp;&nbsp;&nbsp;
+ <a href="user.php">会员登录</a>
+ <a href="user.php?act=register">会员注册</a>
+{/if}

@@ -1,0 +1,9 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="c_title clearfix" title="点击打开" onclick="javascript:cat_c('c_news')">+ 最新资讯</div>
+    <div id="c_news" class="c_detail clearfix">
+		<ul>
+        <!--{foreach from=$new_articles item=article}-->
+  <li><a href="{$article.url}" title="{$article.title|escape:html}">{$article.title|escape:html}</a></li>
+  <!--{/foreach}-->
+</ul>    
+	</div>

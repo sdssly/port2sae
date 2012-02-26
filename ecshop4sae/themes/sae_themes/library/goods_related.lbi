@@ -1,0 +1,23 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_goods} -->
+<div class="box_1">
+      <div class="theh3">随机商品</div>
+      <ul class="clearfix">
+      <!--{foreach from=$related_goods item=releated_goods_data}-->
+                <li class="goodsimg"><a target="_blank" href="{$releated_goods_data.url}"><img src="{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name}" class="B_blue" /></a>
+        <br>
+本 店 价：
+ <!-- {if $releated_goods_data.promote_price neq 0} -->
+{$releated_goods_data.formated_promote_price}
+        <!-- {else} -->
+{$releated_goods_data.shop_price}
+        <!-- {/if} -->             <p></p>
+		</li>
+        
+         <!--{/foreach}-->
+    </ul>    
+    </div>
+<!-- {/if} -->
+
+
+

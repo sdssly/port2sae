@@ -1,0 +1,11 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <div id="play" class="focusimg">
+                    <div id="play_list">
+                		<a title="111" target="_blank" href="#" style=""><img src="/images/ads/banner1.jpg"></a>
+                		<a title="222" target="_blank" href="#" style="display: none;"><img src="/images/ads/banner2.jpg"></a>
+                		<a title="333" target="_blank" href="#" style="display: none;"><img src="/images/ads/banner3.jpg"></a>
+                		<a title="444" target="_blank" href="#" style="display: none;"><img src="/images/ads/banner4.jpg"></a>
+                		<a title="555" target="_blank" href="#" style="display: none;"><img src="/images/ads/banner5.jpg"></a>
+                    </div>
+                    <div id="play_text"><ul><li style="background: none repeat scroll 0% 0% rgb(127, 0, 25); color: rgb(255, 255, 255); font-weight: bolder;">1</li><li style="background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(127, 0, 25); font-weight: normal;">2</li><li style="background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(127, 0, 25); font-weight: normal;">3</li><li style="background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(127, 0, 25); font-weight: normal;">4</li><li style="background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(127, 0, 25); font-weight: normal;">5</li></ul></div>
+                </div>

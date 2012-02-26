@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="themes/sae_themes/style.css" rel="stylesheet" type="text/css" />
+{insert_scripts files='common.js,global.js,compare.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="top10px">
+<div">  <div id="ur_here"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --></div>
+  <div class="box_1"> <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+
+    <!--{if $price_grade.1}-->
+    <div class="screeBox" style="width:130px; _width:132px; "> 
+    <font class="font_b">{$lang.price} :</font>
+    <div class="attrs" style="overflow-y:scroll">
+    <!--{foreach from=$price_grade item=grade}-->
+    
+    <!-- {if $grade.selected} -->
+      <span>{$grade.price_range}</span><br />
+      <!-- {else} -->
+        <a href="{$grade.url}" rel="nofollow">{$grade.price_range}</a><br />
+        <!-- {/if} -->
+        <!--{/foreach}-->
+      </div>
+    </div>
+    <!--{/if}-->
+    
+    <!--{foreach from=$filter_attr_list item=filter_attr}-->
+    
+    <!--{if $filter_attr.filter_attr_name eq '款式'}-->
+    <div class="screeBox" style="width:107px; _width:109px;"> 
+    <font class="font_b">{$filter_attr.filter_attr_name|escape:html} :</font>
+    <div class="attrs"  style="overflow-y:scroll">
+    <!--{foreach from=$filter_attr.attr_list item=attr}-->
+    
+    <!-- {if $attr.selected} -->
+       <span> {$attr.attr_value} </span> <br />
+        <!-- {else} -->
+        <a href="{$attr.url}"  rel="nofollow" >{$attr.attr_value}</a><br />
+        <!-- {/if} -->
+        
+        <!--{/foreach}-->
+      </div>
+    </div>
+    <!--{/if}-->
+    
+    <!--{if $filter_attr.filter_attr_name eq '尺码'}-->
+    <div class="screeBox" style="width:237px; _width:239px;" > 
+    <font class="font_b">尺码 :</font>
+      <div class="attrs"  > 
+      <!--{foreach from=$filter_attr.attr_list item=attr}-->
+      
+    <!--{if $attr.attr_value eq '全部'}-->
+  		{if $attr.selected}
+        
+      <span >全部<br />
+        </span>
+        {else}
+        <a rel="nofollow" href="{$attr.url}">{$attr.attr_value}<br></a>
+        {/if}
+        
+        <!--{else}-->
+        
+       {if $attr.selected}
+        <span class="attr_size">{$attr.attr_value}</span>
+        {else}
+         <a href="{$attr.url}"  rel="nofollow"  class ="attr_size">{$attr.attr_value}</a> 
+         {/if}
+         
+         <!--{/if}-->
+         
+         <!--{/foreach}-->
+         </div>
+    </div>
+     <!--{/if}-->
+     
+     <!--{if $filter_attr.filter_attr_name eq '主色'}-->
+    <div class="screeBox" > <font class="font_b">主色 :</font>
+      <div class="attrs"  >
+      <!--{foreach from=$filter_attr.attr_list item=attr}-->
+    <!--{if $attr.attr_value eq '全部'}-->
+  		<!-- {if $attr.selected} -->
+      <span >全部<br />
+        </span>
+        <!--{else}-->
+        <a rel="nofollow" href="{$attr.url}">{$attr.attr_value}<br></a>
+        <!--{/if}-->
+        <!--{else}-->
+        <!-- {if $attr.selected} -->
+       <span><img class="attr_color" alt="{$attr.attr_value}" title="{$attr.attr_value}" src="images/attrs/color/{$color.$attr.attr_value}"></span>
+        <!--{else}-->
+         <a rel="nofollow" href="{$attr.url}"><img class="attr_color" alt="{$attr.attr_value}" title="{$attr.attr_value}" src="images/attrs/color/{$color.$attr.attr_value}"></a>
+         <!--{/if}-->
+         <!--{/if}-->
+         <!--{/foreach}-->  
+       </div>
+    </div>
+    <!--{/if}-->
+    <!--{/foreach}-->
+  </div>
+  
+<!-- #BeginLibraryItem "/library/goods_list.lbi" --><!-- #EndLibraryItem -->
+  <div class="wrap">
+    <div class="c_title" onclick="javascript:cat_c('c_desc')">+ 分类介绍</div>
+    <div id="c_desc" class="c_detail clearfix">
+{$cat.cat_desc}
+    </div>
+    <!-- #BeginLibraryItem "/library/c_news.lbi" --><!-- #EndLibraryItem -->
+  </div>
+   <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+</div>
+</div>
+ <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script language="javascript" type="text/javascript">
+var w3c = (document.getElementById) ? true : false;
+var agt = navigator.userAgent.toLowerCase();
+var ie = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1) && (agt.indexOf("omniweb") == -1));
+var mymovey = new Number();
+function IeTrueBody(){
+	return (document.compatMode && document.compatMode!="BackCompat") ? document.documentElement : document.body;
+}
+function GetScrollTop(){
+	return ie ? IeTrueBody().scrollTop : window.pageYOffset;
+}
+function heartBeat(){
+	diffY=GetScrollTop(); 
+	mymovey += Math.floor((diffY-document.getElementById('backi').style.top.replace("px","")+200)*0.1);
+	document.getElementById('backi').style.top = mymovey+"px";
+} 
+window.setInterval("heartBeat()",1);
+</script>
+</body>
+<script type="text/javascript">
+if($d('c_desc')){
+cat_c('c_desc');
+}
+if($d('c_news')){
+cat_c('c_news');
+}
+function $d(element) {
+  return document.getElementById(element);
+}
+function cat_c(str){
+	var ci=$d(str);
+	if(ci.className != 'none'){
+	ci.className='none';
+	}else{
+	ci.className='c_detail clearfix';
+	}
+}
+</script>
+</html>

@@ -1,0 +1,99 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php
+function seed()
+{
+list($msec, $sec) = explode(' ', microtime());
+return (float) $sec;
+}
+if(!function_exists('get_articles'))
+{
+/**
+* 随机调取6条文章
+*/
+function get_articles($cat_id=0,$num=6)
+{
+        $cat_str = get_article_children($cat_id);
+  $sql = 'SELECT count(*) ' .
+           ' FROM ' .$GLOBALS['ecs']->table('article') .
+           ' WHERE is_open = 1 AND ' . $cat_str.' ';
+    
+        $total_num=$GLOBALS['db']->getOne($sql);
+        
+        if($num>=$total_num)
+        {
+        $sql = 'SELECT article_id, title, author, add_time, file_url, open_type' .
+               ' FROM ' .$GLOBALS['ecs']->table('article') .
+               ' WHERE is_open = 1 AND ' . $cat_str .
+               ' ORDER BY article_type DESC, article_id DESC';        
+
+        $articles=$GLOBALS['db']->getAll($sql);
+        
+        foreach($articles as $key=>$item)
+        {
+                 $articles[$key]['id']=$item['article_id'];
+                 $articles[$key]['short_title'] = $GLOBALS['_CFG']['article_title_length'] > 0 ? sub_str($item['title'], $GLOBALS['_CFG']['article_title_length']) : $item['title'];
+                 $articles[$key]['author']      = empty($item['author']) || $item['author'] == '_SHOPHELP' ? $GLOBALS['_CFG']['shop_name'] : $item['author'];
+                 $articles[$key]['url']         = $item['open_type'] != 1 ? build_uri('article', array('aid'=>$item['article_id']), $item['title']) : trim($item['file_url']);
+                 $articles[$key]['add_time']    = date($GLOBALS['_CFG']['date_format'], $item['add_time']);       
+        }
+        
+            return $articles;                
+        }
+        else{
+        
+                $id_array=array();
+                for($i=1;$i<=$num;$i++)
+                {
+                //srand(seed());
+                 $pos=rand(0,$total_num-1);   
+                $sql = 'SELECT article_id, title, author, add_time, file_url, open_type' .
+               ' FROM ' .$GLOBALS['ecs']->table('article') .
+               ' WHERE is_open = 1 AND ' . $cat_str .
+               ' ORDER BY article_type DESC, article_id DESC';
+                $sql .=" limit ".$pos.",1";        
+                
+                $article_info=$GLOBALS['db']->getRow($sql);                
+
+                $article_id=$article_info['article_id'];
+                
+                while(in_array($article_id,$id_array))
+                {
+                      // srand(seed());
+                       $pos=rand(0,$total_num-1);
+                        $sql = 'SELECT article_id, title, author, add_time, file_url, open_type' .
+                       ' FROM ' .$GLOBALS['ecs']->table('article') .
+                       ' WHERE is_open = 1 AND ' . $cat_str .
+                       ' ORDER BY article_type DESC, article_id DESC';
+                        $sql .=" limit ".$pos.",1";        
+                        
+                        $article_info=$GLOBALS['db']->getRow($sql);                
+        
+                        $article_id=$article_info['article_id'];
+
+                        array_push($id_array,$article_id);
+                }
+                
+                $article_info['id']=$article_info['article_id'];
+                $article_info['short_title'] = $GLOBALS['_CFG']['article_title_length'] > 0 ? sub_str($article_info['title'], $GLOBALS['_CFG']['article_title_length']) : $article_info['title'];
+                $article_info['author']      = empty($article_info['author']) || $article_info['author'] == '_SHOPHELP' ? $GLOBALS['_CFG']['shop_name'] : $article_info['author'];
+                $article_info['url']         = $article_info['open_type'] != 1 ? build_uri('article', array('aid'=>$article_id), $article_info['title']) : trim($article_info['file_url']);
+                $article_info['add_time']    = date($GLOBALS['_CFG']['date_format'], $article_info['add_time']);                
+                
+                $articles[]=$article_info;
+                }
+                
+                return $articles;
+        }
+}
+}
+$this->assign('articles',get_articles(0,2));
+?>
+
+    <div class="c_title clearfix" onclick="javascript:cat_c('c_news')">+ 随机资讯</div>
+    <div id="c_news" class="c_detail clearfix">
+      <ul>
+      <!--{foreach from=$articles item="art"}-->
+        <li><a href="{$art.url}" title="{$art.title|escape:html}">{$art.title|escape:html}</a></li>
+        <!--{/foreach}-->
+      </ul>
+    </div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="themes/sae_themes/style.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/indexflash.js"></script>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="top10px">
+
+
+<div class="clearfix">
+    <div onclick="javascript:cat_c('c_how')" title="点击打开" class="c_title clearfix">+ 选择正确尺码的两个方法</div>
+    <div class="c_detail clearfix" id="c_how">
+    	<h3>商品对比法</h3>
+        <p>
+        	<b>第一步</b>：找出一双以前买过的鞋子，翻出鞋标。如下图：
+        </p>
+        <p><img src="themes/sae_themes/images/tonguelabel.jpg"></p>
+        <p><b>第二步</b>：通过这双鞋的鞋标，您会看到三个尺码。</p>
+        <p>1.美国码：代表的是该品牌商品的美国码，即US码。</p>
+		<p>2.欧洲码（EUR）：即为您订购商品时选择的鞋码。</p>
+		<p>3.中国码（mm）：即为对应鞋子的内部长度。</p>
+        <p><b>第三步</b>：您根据鞋子的品牌和相应的鞋码在本页面的转换器中进行转换，可以得到合适的尺码。</p>
+        <p><b>如果您在本页面找不到您穿的鞋子品牌，可以任选一个品牌+中国码，根据鞋标上中国码换算。</b>因为中国码对应的是鞋子的内长，所以任何品牌只要内长正确，都是可以得到正确的尺码的。</p>
+        <h3>量脚方法</h3>
+        <p><b>第一步：量脚</b></p>
+        <p><img src="themes/sae_themes/images/foot_length1.jpg"></p><p><img src="themes/sae_themes/images/foot_length2.jpg"></p>
+        <p><b>测量脚长注意事项</b></p>
+        <p>1. 量脚姿势：请您在量脚长时双脚均匀受力站立于地面上。</p>
+        <p>2. 运动鞋测量：如果您需要购买运动鞋，建议您穿上适合相应运动的袜子后，再测量脚长。</p>
+        <p>3. 测量说明：人的脚只是基本对称，请以偏大那只脚的数据为准。</p>
+        <p>4. 测量时间：建议您在下午测量脚长，这时的脚会较大。</p>
+        <p>5. 特殊说明：网球鞋、部分足球鞋因为有很好的包裹感，所以有时会感觉鞋型较小或较窄，如果您的脚型较宽，建议您可以购买大半号的鞋子。</p>
+        <p><b>第二步</b>：选择与脚长最接近中国码，然后在尺码表中任意选择一个品牌+中国码进行换算即可。</p>
+	</div>
+</div>
+
+</div>
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --> <!-- #EndLibraryItem -->
+<script language="javascript" type="text/javascript">
+var w3c = (document.getElementById) ? true : false;
+var agt = navigator.userAgent.toLowerCase();
+var ie = ((agt.indexOf("msie") != -1) && (agt.indexOf("opera") == -1) && (agt.indexOf("omniweb") == -1));
+var mymovey = new Number();
+function IeTrueBody(){
+	return (document.compatMode && document.compatMode!="BackCompat") ? document.documentElement : document.body;
+}
+function GetScrollTop(){
+	return ie ? IeTrueBody().scrollTop : window.pageYOffset;
+}
+function heartBeat(){
+	diffY=GetScrollTop(); 
+	mymovey += Math.floor((diffY-document.getElementById('backi').style.top.replace("px","")+200)*0.1);
+	document.getElementById('backi').style.top = mymovey+"px";
+} 
+window.setInterval("heartBeat()",1);
+</script>
+</body>
+<script type="text/javascript"> 
+//$('#play_list').TrunAd2();
+function $$d(element) {
+  return document.getElementById(element);
+}
+
+function cat_c(str){
+	var ci=$$d(str);
+	if(ci.className != 'none'){
+	ci.className='none';
+	}else{
+	ci.className='c_detail clearfix';
+	}
+}
+</script>
+</html>

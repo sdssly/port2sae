@@ -1,0 +1,6 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $pictures}-->
+             <!-- {foreach from=$pictures item=picture}-->
+            <img src="{$picture.img_url}" alt="{$goods.goods_name}"><br/>
+            <!--{/foreach}-->
+<!--{/if}-->

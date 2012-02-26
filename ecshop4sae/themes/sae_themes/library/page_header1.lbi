@@ -1,0 +1,88 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php
+$searchkeywords = explode(',', trim($GLOBALS['_CFG']['search_keywords']));
+$scount=count($searchkeywords);
+$rnd=rand(0,$scount);
+$sword=$searchkeywords[$rnd];
+$this->assign('sword',$sword);
+if(!function_exists('topic_list'))
+{
+function topic_list()
+{
+   $sql = 'SELECT * FROM '.$GLOBALS['ecs']->table('topic').' ORDER BY topic_id DESC LIMIT 0,10';
+   $topic = $GLOBALS['db']->getAll($sql);
+   
+   foreach($topic as $k=>$v)
+   {
+        $topic[$k]['start_time'] = local_date('Y-m-d',$v['start_time']);
+        $topic[$k]['end_time']   = local_date('Y-m-d',$v['end_time']);
+        $topic[$k]['url']        = $GLOBALS['ecs']->url() .'asics-'.$v['keywords'];	
+   }
+    return $topic;
+}
+}
+$this->assign('topic_list',    topic_list());   
+?>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="wrap">
+	<div style="float:right;width:0px; margin-right: 0px;">
+	<div id=backi style="Z-INDEX: 999; POSITION: absolute; TOP: 0px;  HEIGHT:auto;">
+        <script type='text/javascript' src='http://chat.53kf.com/kf.php?arg=jizhiteam&style=1'></script>
+    </div></div> 
+	<ul class="top"> 
+		<li class="logo"><a href="../index.php" name="top">{$sitename}</a></li> 
+		<li class="topuser">
+            <div class="clearfix">
+                                {insert_scripts files='transport.js,utils.js'}
+                <div id="append_parent"></div>
+                {* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}{insert name='cart_info'}
+
+            </div>
+            <div class="clearfix">
+            	<div class="top_search">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+                <form action="search.php" onSubmit="return checkSearchForm()" method="get">
+				<input name="keywords" type="text" id="keyword" value="{$sword|escape:html}" onClick="this.value=''"> 
+					<input type="submit" id="search_submit" value=" ">
+                </form>  
+                </div>
+            </div>
+		</li>
+        <li id="free">                
+            	<img src="themes/sae_themes/images/tel.gif">
+		</li> 
+	</ul> 
+	<ul class="nav">
+      <li><a href="../index.php"{if $navigator_list.config.index eq 1} class="current"{/if} title="{$sitename}"><strong>{$sitename}</strong>{$lang.home}</a></li>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+  <li><a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="current"{/if} title="{$nav.name}"><strong>{$nav.name}</strong></a></li>
+ <!-- {/foreach} -->
+<li style="float:right; margin-right:0px"><a href="category-7.html" class="sp"><strong>断码促销</strong></a></li>
+	</ul>
+	<div class="subnav"> 
+		<span class="txt"> 
+        <!--{foreach from=$topic_list item="t"}-->
+			<a href="{$t.url}" target="_blank" >{$t.title}</a>
+		<!--{/foreach}-->
+		</span>
+	</div> 
+</div>

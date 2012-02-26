@@ -1,0 +1,116 @@
+BODY {
+	 PADDING-BOTTOM: 0px; MARGIN: 0px auto; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; COLOR: #333333; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+IMG {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+A {
+	12px; TEXT-DECORATION: none
+}
+.i_topcenter {
+WIDTH: 470px; HEIGHT: 341px
+}
+.i_topcenter UL {
+	MARGIN-TOP: 0px; WIDTH: 100%
+}
+.i_topcenter LI {
+	FLOAT: left
+}
+.i_topcenter LI.topcenter_margin {
+	MARGIN: 0px 0px
+}
+.slides {
+	POSITION: relative; WIDTH: 470px; HEIGHT: 341px; OVERFLOW: hidden
+}
+.slide-pic {
+	WIDTH: 470px; OVERFLOW: hidden
+}
+.slide-pic IMG {
+	WIDTH: 470px; HEIGHT: 341px
+}
+.slide-pic LI {
+	DISPLAY: none
+}
+.slide-pic LI.cur {
+	DISPLAY: block
+}
+.slide-li {
+	POSITION: absolute; BOTTOM: 0px; LEFT: 0px
+}
+.slide-li LI {
+	TEXT-ALIGN: center; LINE-HEIGHT: 30px; WIDTH: 94px; FLOAT: left; HEIGHT: 30px
+}
+.slide-li A {
+	DISPLAY: block; COLOR: #fff; FONT-SIZE: 12px
+}
+.slide-li .cur A {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+.slide-li A:hover {
+	COLOR: #fff; TEXT-DECORATION: none
+}
+.op LI {
+	BACKGROUND: #939393
+}
+.op LI.cur {
+	BACKGROUND: #bd1920
+}
+.i_topright {
+	WIDTH: 252px;
+	HEIGHT: 186px;
+        TEXT-ALIGN: center;
+}
+.i_topright .topnews {
+	BORDER-BOTTOM: #ccc 1px solid; BORDER-LEFT: #ccc 1px solid; WIDTH: 252px; FLOAT: right; HEIGHT: 186px; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid
+}
+#slides_a {
+	BORDER-BOTTOM: #ccc 1px solid; POSITION: relative; BORDER-LEFT: #ccc 1px solid; WIDTH: 252px; FLOAT: right; HEIGHT: 186px; OVERFLOW: hidden; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid
+}
+#picBox {
+	POSITION: relative; WIDTH: 252px; HEIGHT: 186px; OVERFLOW: hidden
+}
+#slides_a UL#show_pic {
+	POSITION: absolute; PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px 0px 4px; PADDING-LEFT: 0px; WIDTH: 3050px; PADDING-RIGHT: 0px; HEIGHT: 186px; PADDING-TOP: 0px
+}
+#slides_a UL#show_pic LI {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: left; HEIGHT: 186px; PADDING-TOP: 0px
+}
+#slides_a UL#show_pic LI IMG {
+	BORDER-RIGHT-WIDTH: 0px; DISPLAY: block; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+#icon_num {
+	POSITION: absolute; MARGIN-TOP: 4px; TOP: 0px; RIGHT: 4px
+}
+#icon_num LI {
+	LIST-STYLE-TYPE: none; MARGIN: 0px; WIDTH: 16px; BACKGROUND: #fff; FLOAT: left; HEIGHT: 15px; COLOR: #393939; CURSOR: pointer; BORDER-RIGHT: #ccc 1px solid
+}
+#icon_num LI:hover {
+	BACKGROUND: #bd1920; COLOR: #fff
+}
+#icon_num LI.active {
+	BACKGROUND: #bd1920; COLOR: #fff
+}
+.i_boxright #i_boxdiv1 {
+	HEIGHT: 186px; BORDER-TOP: #ccc 1px solid
+}
+.i_boxright #i_boxdiv2 {
+	DISPLAY: none; HEIGHT: 186px; BORDER-TOP: #ccc 1px solid
+}
+.i_boxright #i_boxdiv3 {
+	DISPLAY: none; HEIGHT: 186px; BORDER-TOP: #ccc 1px solid
+}
+.i_boxright #i_boxdiv4 {
+	DISPLAY: none; HEIGHT: 186px; BORDER-TOP: #ccc 1px solid
+}
+.i_boxright #i_boxdiv5 {
+	DISPLAY: none; HEIGHT: 186px; BORDER-TOP: #ccc 1px solid
+}
+.i_boxright #i_boxdiv6 {
+	DISPLAY: none; HEIGHT: 186px; BORDER-TOP: #ccc 1px solid
+}
+.i_boxright IMG {
+	FLOAT: left
+}

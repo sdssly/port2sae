@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" /> 
+<meta name="Keywords" content="" /> 
+<meta name="Description" content="" /> 
+<title>您要找的页面不存在</title> 
+<link rel="shortcut icon" href="favicon.ico" /> 
+<link rel="icon" href="animated_favicon.gif" type="image/gif" /> 
+<link href="/themes/sae_themes/style.css" rel="stylesheet" type="text/css" /> 
+<style> 
+#see{padding:100px 0px 0px 220px; font-size:18px;}
+#see li{ list-style:square}
+ 
+#products{ margin:5px 0px 0px 20px}
+#products li{ list-style:square; width:220px; float:left; line-height:26px}
+ 
+</style> 
+</head> 
+<body> 
+<div class="wrap"> 
+	<ul class="top"> 
+		<li class="logo"><a href="/" title="拖鞋官网"><strong>官网</strong></a></li> 
+		<li class="topuser"> 
+            <div class="clearfix"> 
+            	<div class="top_search" style="margin-top:15px"> 
+				<script type="text/javascript"> 
+                
+                <!--
+                function checkSearchForm()
+                {
+                    if(document.getElementById('keyword').value)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        alert("请输入搜索关键词！");
+                        return false;
+                    }
+                }
+                -->
+                
+                </script> 
+                <form action="search.php" onSubmit="return checkSearchForm()" method="get"> 
+				                    <input name="keywords" type="text" id="keyword" value="" onClick="this.value=''"> 
+				                    <input type="submit" id="search_submit" value=" "> 
+                </form> 
+                        
+                </div> 
+            </div> 
+		</li> 
+	</ul> 
+</div> 
+<div class="wrap" style="background:url(../images/404.jpg) no-repeat; height: 300px; line-height:26px "> 
+	<ul id="see"> 
+		<li><a href="/">去首页看看</a></li> 
+        <li><a href="http://chat.53kf.com/company.php?arg=cnsoco&style=1">找客服问问</a></li> 
+        <li><a href="/article-19.html">反馈错误</a></li> 
+    </ul><br /> 
+<br /> 
+ 
+    <h3>您还可以看看我们的其他产品</h3> 
+    <ul id="products"> 
+        <li></li> 
+        <li></li>
+		<li></li>
+    </ul> 
+</div> 
+    
+</body> 
+</html>

@@ -1,0 +1,44 @@
+appname: ecshops
+version: 1
+
+handle:
+#访问控制
+- hostaccess: if( path ~ "\.(bak|inc|lib|sh|tpl|lbi|dwt)$" ) allow "127.0.0.1"
+- compress: if( out_header["Content-Length"] > 10240 ) compress
+#URL重写
+# direct one-word access
+- rewrite: if(!is_file() && !is_dir() &&path ~ "^index\.html$")  goto "index\.php"
+- rewrite: if(!is_file() && !is_dir() &&path ~ "^category$") goto "index\.php"
+
+# access any object by its numeric identifier
+- rewrite: if( path ~ "^feed-c([0-9]+)\.xml$") goto "feed\.php\?cat=$1"
+- rewrite: if( path ~ "^feed-b([0-9]+)\.xml$") goto "feed\.php\?brand=$1"
+- rewrite: if( path ~ "^feed-type([^-]+)\.xml$") goto "feed\.php\?type=$1"
+- rewrite: if( path ~ "^feed\.xml$")  goto "feed\.php"
+- rewrite: if( path ~ "^category-([0-9]+)-b([0-9]+)-min([0-9]+)-max([0-9]+)-attr([^-]*)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$") goto "category\.php\?id=$1&brand=$2&price_min=$3&price_max=$4&filter_attr=$5&page=$6&sort=$7&order=$8"
+- rewrite: if( path ~ "^category-([0-9]+)-b([0-9]+)-min([0-9]+)-max([0-9]+)-attr([^-]*)(.*)\.html$") goto "category\.php\?id=$1&brand=$2&price_min=$3&price_max=$4&filter_attr=$5"
+- rewrite: if( path ~ "^category-([0-9]+)-b([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$") goto "category\.php\?id=$1&brand=$2&page=$3&sort=$4&order=$5"
+- rewrite: if( path ~ "^category-([0-9]+)-b([0-9]+)-([0-9]+)(.*)\.html$") goto "category\.php\?id=$1&brand=$2&page=$3 "
+- rewrite: if( path ~ "^category-([0-9]+)-b([0-9]+)(.*)\.html$") goto "category\.php\?id=$1&brand=$2 "
+- rewrite: if( path ~ "^category-([0-9]+)(.*)\.html$") goto "category\.php\?id=$1 "
+- rewrite: if( path ~ "^goods-([0-9]+)(.*)\.html$") goto "goods\.php\?id=$1"
+- rewrite: if( path ~ "^article_cat-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$") goto "article_cat\.php\?id=$1&page=$2&sort=$3&order=$4 "
+- rewrite: if( path ~ "^article_cat-([0-9]+)-([0-9]+)-(.+)(.*)\.html$") goto "article_cat\.php\?id=$1&page=$2&keywords=$3"
+  - rewrite: if( path ~ "^article_cat-([0-9]+)-([0-9]+)(.*)\.html$") goto "article_cat\.php\?id=$1&page=$2  "
+- rewrite: if( path ~ "^article_cat-([0-9]+)(.*)\.html$") goto "article_cat\.php\?id=$1 "
+- rewrite: if( path ~ "^article-([0-9]+)(.*)\.html$") goto "article\.php\?id=$1 "
+- rewrite: if( path ~ "^brand-([0-9]+)-c([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)\.html$") goto "brand\.php\?id=$1&cat=$2&page=$3&sort=$4&order=$5"
+- rewrite: if( path ~ "^brand-([0-9]+)-c([0-9]+)-([0-9]+)(.*)\.html$") goto "brand\.php\?id=$1&cat=$2&page=$3"
+- rewrite: if( path ~ "^brand-([0-9]+)-c([0-9]+)(.*)\.html$") goto "brand\.php\?id=$1&cat=$2"
+- rewrite: if( path ~ "^brand-([0-9]+)(.*)\.html$")  goto "brand\.php\?id=$1"
+- rewrite: if( path ~ "^tag-(.*)\.html$") goto "search\.php\?keywords=$1"
+- rewrite: if( path ~ "^snatch-([0-9]+)\.html$") goto "snatch\.php\?id=$1"
+- rewrite: if( path ~ "^group_buy-([0-9]+)\.html$") goto "group_buy\.php\?act=view&id=$1"
+- rewrite: if( path ~ "^auction-([0-9]+)\.html$") goto "auction\.php\?act=view&id=$1"
+
+- rewrite: if( path ~ "^exchange-id([0-9]+)(.*)\.html$") goto "exchange\.php\?id=$1&act=view"
+- rewrite: if( path ~ "^exchange-([0-9]+)-min([0-9]+)-max([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$") goto "exchange\.php\?cat_id=$1&integral_min=$2&integral_max=$3&page=$4&sort=$5&order=$6"
+- rewrite: if( path ~ "^exchange-([0-9]+)-([0-9]+)-(.+)-([a-zA-Z]+)(.*)\.html$") goto "exchange\.php\?cat_id=$1&page=$2&sort=$3&order=$4"
+- rewrite: if( path ~ "^exchange-([0-9]+)-([0-9]+)(.*)\.html$") goto "exchange\.php\?cat_id=$1&page=$2 "
+- rewrite: if( path ~ "^exchange-([0-9]+)(.*)\.html$") goto "exchange\.php\?cat_id=$1 " 
+ 
